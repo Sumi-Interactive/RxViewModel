@@ -36,7 +36,7 @@ import RxSwift
 returns `true`. Completion and errors are always forwarded immediately.
 */
 extension ObservableType {
-  public func throttle(_ interval: TimeInterval, valuesPassingTest predicate: @escaping (E) -> Bool) -> Observable<Element> {
+  public func throttle(_ interval: RxTimeInterval, valuesPassingTest predicate: @escaping (Element) -> Bool) -> Observable<Element> {
     return Observable.create { (obs: AnyObserver<Element>) -> Disposable in
       let disposable = CompositeDisposable()
       let scheduler = ConcurrentDispatchQueueScheduler(qos: .default)
